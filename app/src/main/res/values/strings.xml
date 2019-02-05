@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CurrencyConverter</string>
+    <string name="action_settings">Settings</string>
+    <string name="dialog_action_ok">OK</string>
+    <string name="dialog_action_cancel">Cancel</string>
+    <string name="dialog_error_title">Sorry</string>
+
+    <string name="select_contry_for_tax">Select tax amount for country</string>
+    <string name="select_tax_period">Select tax period</string>
+    <string name="ammount_excluding_taxes">Enter Amount excluding tax</string>
+    <string name="type_of_tax_rate">Select type of tax rate</string>
+    <string name="price_includiong_tax">See</string>
+    <string name="calculate_tax">See</string>
+    <string name="enter_tax_amount">Enter tax amount</string>
+
+
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+    <data>
+        <variable
+            name="presenter"
+            type="com.example.sumon.currencyconverter.ui.tax.CurrencyConverterPresenter"/>
+    </data>
+    <ScrollView
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.main.converter.CurrencyConverterActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_10dp"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="popupWindowDogs"
+                android:textColor="@android:color/black"
+                android:text="@{presenter.selctCountryWithAmount}"
+                android:textSize="@dimen/title_text_size" />
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinner_period"
+                android:layout_marginTop="10dp"
+                style="?android:attr/spinnerStyle"
+                android:layout_width="match_parent"
+                android:prompt="@string/select_tax_period"
+                android:spinnerMode="dialog"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.AppCompatSpinner>
+
+            <RadioGroup
+                android:id="@+id/radio_tax_rate"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="@{presenter.totalAmount}"
+                android:textSize="@dimen/title_text_size" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

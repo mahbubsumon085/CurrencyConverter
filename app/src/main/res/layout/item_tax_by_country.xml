@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+     <data>
+        <variable
+            name="item"
+            type="com.example.sumon.currencyconverter.data.model.TaxItem"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_bg"
+        >
+
+        <TextView
+            android:id="@+id/tv_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="@{item.getName()}"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="16dp"
+            />
+        <EditText
+            android:id="@+id/et_amount"
+            android:layout_below="@+id/tv_country"
+            android:hint="@string/enter_tax_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:inputType="numberDecimal"
+            android:focusableInTouchMode="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="3dp"
+            />
+
+
+        <Button
+            android:id="@+id/bt_calculate_taxt"
+            android:layout_below="@+id/et_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/calculate_tax"
+            android:textSize="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="3dp"
+            />
+    </RelativeLayout>
+</layout>
