@@ -23,7 +23,32 @@ public class TaxItem implements Observable{
     @SerializedName("country_code")
     String countryCode;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public void setPeriods(List<TaxPeriod> periods) {
+        this.periods = periods;
+    }
+
     @SerializedName("periods")
+
     public List<TaxPeriod> periods = new ArrayList();
 
     public List<TaxPeriod> getPeriods() {
