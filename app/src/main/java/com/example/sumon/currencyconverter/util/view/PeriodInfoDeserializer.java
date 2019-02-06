@@ -15,6 +15,17 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Gson converter class for retrofit.
+ *
+ *<P>
+ *  Used for {@link TaxPeriod}. Convert {@link JsonObject} to {@link Map}.
+ *  Map is used to facilitates dynamic tax types.
+ *<P/>
+ *
+ * @version 1.1
+ * @since 1.1
+ */
 public class PeriodInfoDeserializer implements JsonDeserializer<TaxPeriod> {
 
     private static final String KEY_EFFECTIVE_FROM = "effective_from";
@@ -36,6 +47,12 @@ public class PeriodInfoDeserializer implements JsonDeserializer<TaxPeriod> {
         return result;
     }
 
+    /**
+     *Convert JsonObject to Map.
+     * @see Map
+     * @see JsonObject
+     * @param jsonObject to convert.
+     */
     @Nullable
     private Map<String, Double> readParametersMap(@NonNull final JsonObject jsonObject) {
         final JsonElement paramsElement = jsonObject.get(KEY_RATES);

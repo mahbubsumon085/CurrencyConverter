@@ -15,6 +15,17 @@ import io.reactivex.ObservableSource;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 
+/**
+ * Act as common places for the data sources.
+ *
+ *  <p>
+ *     DatabaseHelper for local database, PreferencesHelper for local storage
+ *     and APIInterface for remote sources.
+ *   <p/>
+ *
+ * @version 1.1
+ * @since 1.1
+ */
 @Singleton
 public class DataManager {
 
@@ -22,6 +33,9 @@ public class DataManager {
     private final PreferencesHelper mPreferencesHelper;
     private final APIInterface mApiInterface;
 
+    /**
+     * Constructor with dependencies.
+     */
     @Inject
     public DataManager( PreferencesHelper preferencesHelper,
                        DatabaseHelper databaseHelper, APIInterface apiInterface) {

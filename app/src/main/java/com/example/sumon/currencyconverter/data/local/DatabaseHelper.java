@@ -21,6 +21,12 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * Wrapper class for local database management.
+ *
+ * @version 1.1
+ * @since 1.1
+ */
 @Singleton
 public class DatabaseHelper {
 

@@ -6,6 +6,12 @@ import android.content.Context;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * This module is responsible to provide dependencies of all activity
+ *  through Dagger2.
+ * @version 1.1
+ * @since 1.1
+ */
 @Module
 public class ActivityModule {
 

@@ -5,6 +5,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.view.inputmethod.InputMethodManager;
 
+/**
+ * Provides view utility method.
+ * @version 1.1
+ * @since 1.1
+ */
 public final class ViewUtil {
 
     public static float pxToDp(float px) {

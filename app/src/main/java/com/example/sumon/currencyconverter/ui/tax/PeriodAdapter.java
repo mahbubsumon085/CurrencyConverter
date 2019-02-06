@@ -20,6 +20,11 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+/**
+ * Adapter to show tax period in spinner.
+ * @version 1.1
+ * @since 1.1
+ */
 public class PeriodAdapter extends ArrayAdapter<TaxPeriod> implements SpinnerAdapter {
     protected ArrayList<TaxPeriod> taxPeriodItems;
     TaxPeriodChangeListener taxPeriodChangeListener;
@@ -40,6 +45,9 @@ public class PeriodAdapter extends ArrayAdapter<TaxPeriod> implements SpinnerAda
         this.taxPeriodItems = taxPeriodItems;
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         if(taxPeriodChangeListener!=null){
@@ -48,23 +56,33 @@ public class PeriodAdapter extends ArrayAdapter<TaxPeriod> implements SpinnerAda
         return getView( position , convertView , parent );
     }
 
-
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public void registerDataSetObserver(DataSetObserver dataSetObserver) {
 
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
 
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public int getCount() {
         return taxPeriodItems.size();
     }
 
-
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final PeriodItemBinding binding;
@@ -82,6 +100,9 @@ public class PeriodAdapter extends ArrayAdapter<TaxPeriod> implements SpinnerAda
         return binding.getRoot();
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public int getViewTypeCount() {
         return 1;

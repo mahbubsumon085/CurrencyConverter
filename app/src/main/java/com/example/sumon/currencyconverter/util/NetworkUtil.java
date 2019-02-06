@@ -4,8 +4,18 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import com.example.sumon.currencyconverter.data.model.TaxPeriod;
+import com.google.gson.JsonObject;
+
+import java.util.Map;
+
 import retrofit2.HttpException;
 
+/**
+ * Provides network utility method.
+ * @version 1.1
+ * @since 1.1
+ */
 public class NetworkUtil {
 
     /**

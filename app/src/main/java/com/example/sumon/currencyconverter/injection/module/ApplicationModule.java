@@ -14,6 +14,8 @@ import dagger.Provides;
 
 /**
  * Provide application-level dependencies.
+ * @version 1.1
+ * @since 1.1
  */
 @Module
 public class ApplicationModule {
@@ -22,7 +24,6 @@ public class ApplicationModule {
     public ApplicationModule(Application application) {
         mApplication = application;
     }
-
 
     @Provides
     Application provideApplication() {
@@ -45,16 +46,4 @@ public class ApplicationModule {
     CurrencyAdapter provideCurrencyAdapter() {
         return CurrencyAdapter.getCurrencyAdapterInstance();
     }
-
-  //  @Provides
-  //  PeriodAdapter providePeriodAdapter() {
-  //      return PeriodAdapter.getPeriodAdapterInstance();
-  //  }
-
-//
-//    @Provides
-//    @Singleton
-//    PopupWindow providePopupWindow() {
-//        return new CustomPopUpProvider();
-//    }
 }

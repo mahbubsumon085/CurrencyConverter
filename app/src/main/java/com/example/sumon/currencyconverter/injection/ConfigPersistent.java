@@ -7,7 +7,9 @@ import javax.inject.Scope;
 
 
 /**
- * A scoping annotation to permit dependencies conform to the life of the
+ * A scoping annotation to permit dependencies.
+ * @version 1.1
+ * @since 1.1
  */
 @Scope
 @Retention(RetentionPolicy.RUNTIME)

@@ -1,13 +1,27 @@
 package com.example.sumon.currencyconverter.data.model;
 
 import android.databinding.Observable;
-
 import com.google.gson.annotations.SerializedName;
-
-import org.json.JSONObject;
-
 import java.util.Map;
 
+/**
+ * Holds information about the tax of particular country.
+ *
+ *  <p>
+ *     Implements {@link Observable} to have impact on XML.
+ *   <p/>
+ *
+ *  <p>
+ *     Contains tax period.
+ *   <p/>
+ *
+ *   <p>
+ *     Map is used to store tax rate. It can by dynamic.
+ *   <p/>
+ *
+ * @version 1.1
+ * @since 1.1
+ */
 public class TaxPeriod implements Observable {
 
     @SerializedName("effective_from")

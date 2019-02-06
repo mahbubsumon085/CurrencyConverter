@@ -2,6 +2,11 @@ package com.example.sumon.currencyconverter.ui.base;
 
 import android.support.v7.widget.RecyclerView;
 
+/**
+ * Abstract BaseAdapter that every other Adapter in this application must implement.
+ * @version 1.1
+ * @since 1.1
+ */
 public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
 

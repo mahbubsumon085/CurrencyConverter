@@ -9,7 +9,11 @@ import com.example.sumon.currencyconverter.injection.ApplicationContext;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-
+/**
+ * Manages database lifecycle.
+ * @version 1.1
+ * @since 1.1
+ */
 @Singleton
 public class DbOpenHelper extends SQLiteOpenHelper {
 
@@ -24,8 +28,6 @@ public class DbOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onConfigure(SQLiteDatabase db) {
         super.onConfigure(db);
-        //Uncomment line below if you want to enable foreign keys
-        //db.execSQL("PRAGMA foreign_keys=ON;");
     }
 
     @Override

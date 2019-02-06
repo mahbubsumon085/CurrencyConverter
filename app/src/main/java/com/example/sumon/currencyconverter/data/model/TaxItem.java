@@ -1,15 +1,18 @@
 package com.example.sumon.currencyconverter.data.model;
+
 import android.databinding.Observable;
-
 import com.google.gson.annotations.SerializedName;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+/**
+ * Holds information about the tax of different country.
+ *  <p>
+ *     Implements {@link Observable} to have impact on XML.
+ *   <p/>
+ * @version 1.1
+ * @since 1.1
+ */
 public class TaxItem implements Observable{
     @SerializedName("name")
     String name;

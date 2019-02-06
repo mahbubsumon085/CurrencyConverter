@@ -19,6 +19,8 @@ import timber.log.Timber;
  * Abstract activity that every other Activity in this application must implement. It handles
  * creation of Dagger components and makes sure that instances of ConfigPersistentComponent survive
  * across configuration changes.
+ * @version 1.1
+ * @since 1.1
  */
 public class BaseActivity extends AppCompatActivity {
 

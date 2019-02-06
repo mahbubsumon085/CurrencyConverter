@@ -40,23 +40,17 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * Test business logic from activity {@link CurrencyConverterActivity}. Responsible
- *  for retrieving data from local and remote storage.
- *  <p>
- *     RxJava is used to retrieve data and update view.
- *   <p/>
- *
- *  <p>
- *     Also contains data to show and have impact on XML layout.
- *   <p/>
+ * Unit test class for the presenter {@link CurrencyConverterPresenter}.
  * @version 1.1
  * @since 1.1
  */
 @RunWith(MockitoJUnitRunner.class)
 public class CurrencyConverterPresenterTest {
     Map<String,Double> taxAmount;
+
     @Mock
     DataManager mDataManager ;
+    @Mock
     PeriodAdapter mPeriodAdapter;
     @Mock
     ObservableField<TaxItem> selectedTaxtPeriod;
@@ -67,15 +61,19 @@ public class CurrencyConverterPresenterTest {
     Context mContext;
     //class to test
     private CurrencyConverterPresenter SUT;
-    TaxPeriod taxPeriod=new TaxPeriod();
-    TaxItem taxItem=new TaxItem();
+    TaxPeriod taxPeriod;
+    TaxItem taxItem;
 
+    /**
+     * Initializes dependencies before each and every test.
+     */
     @Before
     public void setup() throws Exception {
 
         SUT = new CurrencyConverterPresenter(mDataManager);
         SUT.income=100;
-
+        taxItem=new TaxItem();
+        taxPeriod=new TaxPeriod();
         taxAmount=new HashMap<>();
         taxAmount.put("some key",5.00);
         taxPeriod.setRates(taxAmount);
@@ -85,10 +83,12 @@ public class CurrencyConverterPresenterTest {
         SUT.selectedTaxtPeriod=selectedTaxtPeriod;
         mPeriodAdapter=new PeriodAdapter(mContext, (ArrayList<TaxPeriod>) taxItem.getPeriods());
         SUT.setPeriodAdapter(mPeriodAdapter);
-
-
     }
 
+    /**
+     * Test for the method {@link CurrencyConverterPresenter#calculateTax} for valid
+     *  tax rate.
+     */
     @Test
     public void calculateTax_positiveRate_returnedValidOutput() {
 
@@ -97,6 +97,10 @@ public class CurrencyConverterPresenterTest {
                 "Your income= 100.0 and tax amount= 5.0");
     }
 
+    /**
+     * Test for the method {@link CurrencyConverterPresenter#calculateTax} for zero
+     *  tax rate.
+     */
     @Test
     public void calculateTax_zeroRate_returnedNoTax() {
 
@@ -105,6 +109,10 @@ public class CurrencyConverterPresenterTest {
                 "Congratulation! You live in a free country.");
     }
 
+    /**
+     * Test for the method {@link CurrencyConverterPresenter#calculateTax} for valid
+     *  tax rate invalid.
+     */
     @Test
     public void calculateTax_negativeRate_returnedValidOutput() {
 
@@ -113,6 +121,10 @@ public class CurrencyConverterPresenterTest {
                 "Negative tax amount. You should be proud of your country");
     }
 
+    /**
+     * Test for the method {@link CurrencyConverterPresenter#populateTaxRateRadio}.
+     * It will call{@link CurrencyConverterPresenter#calculateTax} with default value.
+     */
     @Test
     public void populateTaxRateRadio_calledWithInitialValue_taxIsCalculated() {
         SUT = Mockito.spy(SUT);
@@ -122,6 +134,10 @@ public class CurrencyConverterPresenterTest {
                 "Your income= 100.0 and tax amount= 5.0");
     }
 
+    /**
+     * Test for the method {@link CurrencyConverterPresenter#updatePeriodSpinner}.
+     * It will call{@link CurrencyConverterPresenter#calculateTax} with default value.
+     */
     @Test
     public void updatePeriodSpinner_initialSelection_returnedValidOutput() {
         SUT = Mockito.spy(SUT);

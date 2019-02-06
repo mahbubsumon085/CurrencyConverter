@@ -16,11 +16,24 @@ import javax.inject.Inject;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
+/**
+ * PopupWindow is used to use RecyclerView as drop down item. To achieve
+ * EditText in drop down list we need PopupWindow. Custom ArrayAdapter for spinner
+ * can't handle Edittext input from keyboard as drop down.
+ *
+ * @version 1.1
+ * @since 1.1
+ */
 public class CustomPopUpProvider extends PopupWindow {
     RecyclerView rvTaxAcountry;
     public RecyclerView getRvTaxAcountry(){
         return rvTaxAcountry;
     }
+
+    /**
+     *Constructor.
+     * @param mContext needed for PopupWindow.
+     */
     public CustomPopUpProvider(Context mContext){
         super(mContext);
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -28,17 +41,6 @@ public class CustomPopUpProvider extends PopupWindow {
         rvTaxAcountry=customView.findViewById(R.id.rv_tax_country);
         rvTaxAcountry.setLayoutManager(new LinearLayoutManager(mContext,
                                 LinearLayoutManager.VERTICAL, false));
-
-        // Set an elevation value for popup window
-        // Call requires API level 21// initialize a pop up window type
-        //        PopupWindow popupWindow = new PopupWindow(this);
-        //
-        //        // the drop down list is a list view
-        //        RecyclerView rvTax =new RecyclerView(this);
-        //        rvTax.setLayoutManager(new LinearLayoutManager(this,
-        //                LinearLayoutManager.VERTICAL, false));
-        //        // set our adapter and pass our pop up window contents
-        //                rvTax.setAdapter(mMainPresenter.getCurrencyAdapter());
         setFocusable(true);
         setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
         setWidth(WindowManager.LayoutParams.WRAP_CONTENT);

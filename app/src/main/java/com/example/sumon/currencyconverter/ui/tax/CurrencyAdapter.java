@@ -18,6 +18,13 @@ import com.example.sumon.currencyconverter.ui.base.BaseViewHolder;
 import java.security.PrivateKey;
 import java.util.ArrayList;
 
+/**
+ * Adapter to show country in recycler view. It will also show
+ * EditText field to enter amount to calculate tax.
+ * @version 1.1
+ * @since 1.1
+ */
+
 public class CurrencyAdapter extends BaseAdapter  {
     private TaxItemInputListener taxItemInputListener;
     protected ArrayList<TaxItem> taxItems;
@@ -34,7 +41,9 @@ public class CurrencyAdapter extends BaseAdapter  {
         this.taxItems = taxItems;
     }
 
-
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent,
                                              int viewType) {
@@ -45,6 +54,9 @@ public class CurrencyAdapter extends BaseAdapter  {
         return new CurrencyViewHolder(binding);
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public void onBindViewHolder(BaseViewHolder holder,
                                  int position) {

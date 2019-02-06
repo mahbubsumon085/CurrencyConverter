@@ -8,7 +8,11 @@ import com.example.sumon.currencyconverter.injection.ApplicationContext;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-
+/**
+ * Wrapper classes for {@link SharedPreferences}.
+ * @version 1.1
+ * @since 1.1
+ */
 @Singleton
 public class PreferencesHelper {
 

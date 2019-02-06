@@ -7,24 +7,30 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import com.example.sumon.currencyconverter.R;
-import com.example.sumon.currencyconverter.data.model.CurrencyListAll;
 import com.example.sumon.currencyconverter.data.model.TaxPeriod;
 import com.example.sumon.currencyconverter.ui.base.BaseActivity;
-
 import javax.inject.Inject;
 import com.example.sumon.currencyconverter.databinding.ActivityCurrencyConverterBinding;
 import com.example.sumon.currencyconverter.util.view.CustomPopUpProvider;
-
 import java.util.ArrayList;
 
+/**
+ * Activity to show show tax rate by countries with different period and type.
+ * It also facilitates user to enter amount and calculate tax on it.
+ * @version 1.1
+ * @since 1.1
+ */
 public class CurrencyConverterActivity extends BaseActivity implements CurrencyConverterMvpView
-         {
+{
     @Inject
     CurrencyConverterPresenter mMainPresenter;
     CustomPopUpProvider popupWindow;
     ActivityCurrencyConverterBinding activityCurrencyConverterBinding;
+
+    /**
+     *{@inheritDoc}
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +52,9 @@ public class CurrencyConverterActivity extends BaseActivity implements CurrencyC
         popupWindow.showAsDropDown(view, -5, 0);
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public void showPeriod(ArrayList<TaxPeriod> taxPeriodItems) {
         mMainPresenter.setPeriodAdapter(new PeriodAdapter(this,taxPeriodItems));
@@ -54,6 +63,9 @@ public class CurrencyConverterActivity extends BaseActivity implements CurrencyC
         Log.d("Spinner","activityCurrencyConverterBinding.spinnerPeriod "+activityCurrencyConverterBinding.spinnerPeriod.getPrompt());
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public void showCurrencyEmpty() {
         activityCurrencyConverterBinding.executePendingBindings();
@@ -65,6 +77,13 @@ public class CurrencyConverterActivity extends BaseActivity implements CurrencyC
 
     }
 
+    /**
+     * Add radio button in radio group to show tax rate.
+     * @param taxtType shows tax type
+     * @param taxAmount tax rate
+     * @param isChecked  radio button checked state. By default first element is checked.
+     * @id  radio button is
+     */
     @Override
     public void showTaxRate(String taxtType, double taxAmount, boolean isChecked, int id) {
         if(isChecked){

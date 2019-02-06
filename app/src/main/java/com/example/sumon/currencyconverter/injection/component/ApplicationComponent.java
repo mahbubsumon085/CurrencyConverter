@@ -16,6 +16,11 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
+/**
+ * This component inject different dependencies across the application.
+ * @version 1.1
+ * @since 1.1
+ */
 @Singleton
 @Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
@@ -29,7 +34,4 @@ public interface ApplicationComponent {
     DataManager dataManager();
     RxEventBus eventBus();
     CurrencyAdapter currencyAdapter();
-   // PeriodAdapter periodAdapter();
-   // PopupWindow popupWindow();popupWindow
-
 }
